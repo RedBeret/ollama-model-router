@@ -1,0 +1,33 @@
+# ollama-model-router configuration
+# copy to config.yaml and customize
+
+ollama_url: http://localhost:11434
+default_category: chat
+
+# model assignments per category
+# each category needs a primary and optional fallback
+models:
+  chat:
+    primary: kimi-k2.5:cloud
+    fallback: glm-5:cloud
+  code:
+    primary: minimax-m2.7:cloud
+    fallback: devstral-2:cloud
+  reasoning:
+    primary: gpt-oss:120b-cloud
+    fallback: deepseek-v3.2:cloud
+  vision:
+    primary: gemma4:cloud
+    fallback: qwen3-vl:cloud
+  search:
+    primary: kimi-k2.5:cloud
+    fallback: qwen3.5:cloud
+  fast:
+    primary: nemotron-3-nano:cloud
+    fallback: ministral-3:cloud
+
+# rate limiting
+rate_limit:
+  max_requests_per_minute: 15
+  retry_after_seconds: 30
+  max_retries: 3
