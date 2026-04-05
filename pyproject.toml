@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ollama-model-router"
+version = "0.1.0"
+description = "Auto-pick the best free Ollama cloud model for your prompt"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = ["requests>=2.31.0", "pyyaml>=6.0"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.scripts]
+model-router = "model_router.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/RedBeret/ollama-model-router"
+Issues = "https://github.com/RedBeret/ollama-model-router/issues"
+
+[tool.setuptools.packages.find]
+include = ["model_router*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

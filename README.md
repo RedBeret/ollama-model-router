@@ -4,6 +4,7 @@ Auto-picks the best free Ollama cloud model for your prompt. Stop guessing which
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![CI](https://github.com/RedBeret/ollama-model-router/actions/workflows/ci.yml/badge.svg)](https://github.com/RedBeret/ollama-model-router/actions/workflows/ci.yml)
 
 ## How it works
 
@@ -21,12 +22,25 @@ Your prompt --> Categorizer (detects task type)
               Stream response back to you
 ```
 
+## Install
+
+Works on macOS, Linux and Windows.
+
+```bash
+# from source
+git clone https://github.com/RedBeret/ollama-model-router.git
+cd ollama-model-router
+pip install -e .
+```
+
 ## Quick start
 
 ```bash
-pip install -r requirements.txt
-python -m model_router "write a python function to parse CSV files"
+model-router "write a python function to parse CSV files"
 # -> routes to minimax-m2.7:cloud (best for code)
+
+# or run as module
+python -m model_router "write a python function to parse CSV files"
 ```
 
 ## Features
@@ -86,8 +100,12 @@ models:
 ## Requirements
 
 - Python 3.10+
-- Ollama installed and running (`ollama serve`)
+- [Ollama](https://ollama.com/download) installed and running (`ollama serve`)
 - Internet connection (for cloud models)
+
+## See also
+
+- [awesome-ollama-models](https://github.com/RedBeret/awesome-ollama-models) - curated list of all Ollama cloud models with benchmarks and use case recommendations
 
 ## License
 
